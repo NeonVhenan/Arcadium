@@ -7,49 +7,31 @@ using UnityEngine.SceneManagement;
 
 public class Memory : MonoBehaviour
 {
-    private enum CardID
-    {
-        SUN,
-        ASTEROID,
-        BANANA,
-        SATELLITE,
-        MOON,
-        ALIENSHIP,
-        CARDBACK, // face arriere
-    }
-
     // game variables
     private static int ERRORS_MAX = 5;
     public static int errors = 0;
     private static bool flag = false;
+    int numCards = 18;
+    private static List<Memory> cartes = new List<Memory>();
     private static List<Memory> carteTirees = new List<Memory>();
     private static List<CardID> spritesName = new List<CardID>();
     // card variables
-    public Sprite sun, asteroid, banana, satellite, moon, alien_ship_alt, card_back, erreur1, erreur2, erreur3, erreur4, erreur0;
-    public SpriteRenderer spriteRenderer;
     private bool isFacingCard = false;
+    Material front;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         if (!flag)
         {
-            spritesName.Add(CardID.SUN);
-            spritesName.Add(CardID.SUN);
-            spritesName.Add(CardID.ASTEROID);
-            spritesName.Add(CardID.ASTEROID);
-            spritesName.Add(CardID.BANANA);
-            spritesName.Add(CardID.BANANA);
-            spritesName.Add(CardID.SATELLITE);
-            spritesName.Add(CardID.SATELLITE);
-            spritesName.Add(CardID.MOON);
-            spritesName.Add(CardID.MOON);
-            spritesName.Add(CardID.ALIENSHIP);
-            spritesName.Add(CardID.ALIENSHIP);
-            spritesName = spritesName.OrderBy(card => Guid.NewGuid()).ToList(); // aleatoire
-            flag = true;
+            cartes.Add(this);
+            front = cartes.GetComponent<Renderer>().materials[1];
+            if (cartes.size() == numCards)
+            {
+                flag = true;
+                //lancer le random pour avoir les positions des cartes
+            }
         }
     }
 
@@ -204,7 +186,7 @@ public class Memory : MonoBehaviour
     {
         if (carteTirees.Count >= 2 && carteTirees.Count % 2 == 0)
         {
-            return carteTirees[carteTirees.Count - 2].spriteRenderer.sprite.name == carteTirees[carteTirees.Count - 1].spriteRenderer.sprite.name;
+            return carteTirees[carteTirees.Count - 2].front == carteTirees[carteTirees.Count - 1].front;
         }
         else
         {

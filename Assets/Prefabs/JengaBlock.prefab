@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1262977952216066943}
   - component: {fileID: 1262977952216066942}
   - component: {fileID: 1262977952216066939}
+  - component: {fileID: 6649608506126870715}
   m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -219,6 +220,18 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &6649608506126870715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262977952216066941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad513fd34f870147975798671f4561c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1262977952421117694
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +246,7 @@ GameObject:
   - component: {fileID: 1262977952421117688}
   - component: {fileID: 1262977952421117695}
   - component: {fileID: 1262977952421117684}
+  - component: {fileID: 5024396191321097482}
   m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -438,6 +452,18 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &5024396191321097482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262977952421117694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad513fd34f870147975798671f4561c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1262977952644149266
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +514,7 @@ GameObject:
   - component: {fileID: 1262977952940177220}
   - component: {fileID: 1262977952940177227}
   - component: {fileID: 1262977952940177216}
+  - component: {fileID: 2328837906272056573}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -693,6 +720,18 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &2328837906272056573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262977952940177226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad513fd34f870147975798671f4561c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1262977952967862397
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +746,7 @@ GameObject:
   - component: {fileID: 1262977952967862399}
   - component: {fileID: 1262977952967862398}
   - component: {fileID: 1262977952967862395}
+  - component: {fileID: 4441625635957205488}
   m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -912,6 +952,18 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &4441625635957205488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262977952967862397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad513fd34f870147975798671f4561c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1262977953773247390
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +978,7 @@ GameObject:
   - component: {fileID: 1262977953773247384}
   - component: {fileID: 1262977953773247391}
   - component: {fileID: 1262977953773247380}
+  - component: {fileID: 235863845501903987}
   m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -1131,6 +1184,18 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &235863845501903987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262977953773247390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad513fd34f870147975798671f4561c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1262977954191751743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,6 +1210,7 @@ GameObject:
   - component: {fileID: 1262977954191751737}
   - component: {fileID: 1262977954191751736}
   - component: {fileID: 1262977954191751733}
+  - component: {fileID: 4833270332228790248}
   m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -1350,3 +1416,15 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &4833270332228790248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262977954191751743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad513fd34f870147975798671f4561c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -6842,6 +6842,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 206092579}
     m_Modifications:
+    - target: {fileID: 6839258243745076966, guid: b7e72fb0314f5094ca7902a0a4a290da, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6839258243816463510, guid: b7e72fb0314f5094ca7902a0a4a290da, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7206,13 +7210,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885335355}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 700801994}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1904166338
 GameObject:
   m_ObjectHideFlags: 0

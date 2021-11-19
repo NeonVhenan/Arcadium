@@ -13,6 +13,7 @@ public class OffsetGrab : XRGrabInteractable
         base.OnSelectEntered(interactor);
         StoreInteractor(interactor);
         MatchAttachmentPoints(interactor);
+        GetComponent<Jenga>().selectionne = true;
 
     }
 
@@ -21,6 +22,7 @@ public class OffsetGrab : XRGrabInteractable
         base.OnSelectExited(interactor);
         ResetAttachmentPoints(interactor);
         ClearInteractor(interactor);
+        GetComponent<Jenga>().selectionne = false;
     }
 
     private void StoreInteractor(XRBaseInteractor interactor)

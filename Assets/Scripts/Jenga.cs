@@ -8,7 +8,7 @@ public class Jenga : MonoBehaviour
     static List<Jenga> blocs = new List<Jenga>();
     static int blocsRetires = 0;
     float xBase, yBase, zBase;
-    bool selectionne = false;
+    public bool selectionne = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +27,13 @@ public class Jenga : MonoBehaviour
             Jenga bloc = GetComponent<Jenga>();
             if (bloc.transform.position.x > bloc.xBase + 0.3)
             {
+                selectionne = false;
                 blocsRestants.Remove(bloc);
                 if (testECHEC())
                 {
                     //message ECHEC
+                    Canvas.canvas.SetActive(true);
+                    Canvas.canvasMessage.text = "ECHEC";
                 }
                 else
                 {
@@ -38,6 +41,8 @@ public class Jenga : MonoBehaviour
                     if (testVICTOIRE())
                     {
                         //message VICTOIRE
+                        Canvas.canvas.SetActive(true);
+                        Canvas.canvasMessage.text = "ECHEC";
                         GameStateManager.jeuxGagnes++;
                     }
                 }
@@ -47,6 +52,7 @@ public class Jenga : MonoBehaviour
 
     public static void remiseAZero()
     {
+        Canvas.canvas.SetActive(false);
         blocsRestants = blocs;
         foreach (Jenga bloc in blocs)
         {

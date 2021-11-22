@@ -8,15 +8,14 @@ using UnityEngine.SceneManagement;
 public class Memory : MonoBehaviour
 {
     // game variables
-    private static int ERRORS_MAX = 5;
-    public static int errors = 0;
-    private static bool flag = false;
-    int numCards = 18;
-    private static List<Memory> cartes = new List<Memory>();
-    private static List<Memory> carteTirees = new List<Memory>();
-    private static List<CardID> spritesName = new List<CardID>();
-    // card variables
-    private bool isFacingCard = false;
+    static int ERRORS_MAX = 5;
+    public static int erreur = 0;
+    static bool flag = false;
+    static int numCards = 18;
+    static List<Memory> cartes = new List<Memory>();
+    public static List<Memory> carteTirees = new List<Memory>();
+    static int pair;
+    public bool isFacingCard = false;
     Material front;
 
 
@@ -26,18 +25,18 @@ public class Memory : MonoBehaviour
         if (!flag)
         {
             cartes.Add(this);
-            front = cartes.GetComponent<Renderer>().materials[1];
-            if (cartes.size() == numCards)
+            front = GetComponent<Renderer>().materials[1];
+            if (cartes.Count == numCards)
             {
                 flag = true;
-                //lancer le random pour avoir les positions des cartes
+                placement();
             }
         }
     }
 
     void Update()
     {
-        if (name.StartsWith("erreur"))
+        /*if (name.StartsWith("erreur"))
         {
             switch (errors)
             {
@@ -57,140 +56,52 @@ public class Memory : MonoBehaviour
                     spriteRenderer.sprite = erreur0;
                     break;
             }
-        }
+        }*/
     }
 
-    /// <summary>
-    ///  Appelé sur chaque gameobject avec le script ET boxcollider
-    /// </summary>
-    void OnMouseDown() //This function is called each time player clicks on GameObject
+
+    public static void testCarte()
     {
-        if (!isFacingCard && CompareLastTwoCards())
+        if(carteTirees.Count >= 2 && carteTirees.Count % 2 == 0)
         {
-            isFacingCard = true;
-            switch (name)
+            if(carteTirees[carteTirees.Count - 2].front == carteTirees[carteTirees.Count - 1].front)
             {
-                case "card1":
-                    ChangeSide(spritesName[0]);
-                    break;
-                case "card2":
-                    ChangeSide(spritesName[1]);
-                    break;
-                case "card3":
-                    ChangeSide(spritesName[2]);
-                    break;
-                case "card4":
-                    ChangeSide(spritesName[3]);
-                    break;
-                case "card5":
-                    ChangeSide(spritesName[4]);
-                    break;
-                case "card6":
-                    ChangeSide(spritesName[5]);
-                    break;
-                case "card7":
-                    ChangeSide(spritesName[6]);
-                    break;
-                case "card8":
-                    ChangeSide(spritesName[7]);
-                    break;
-                case "card9":
-                    ChangeSide(spritesName[8]);
-                    break;
-                case "card10":
-                    ChangeSide(spritesName[9]);
-                    break;
-                case "card11":
-                    ChangeSide(spritesName[10]);
-                    break;
-                case "card12":
-                    ChangeSide(spritesName[11]);
-                    break;
-            }
-        }
-    }
-
-    void ChangeSide(CardID cardID)
-    {
-        switch (cardID)
-        {
-            case CardID.SUN:
-                spriteRenderer.sprite = sun;
-                carteTirees.Add(this);
-                break;
-            case CardID.ASTEROID:
-                spriteRenderer.sprite = asteroid;
-                carteTirees.Add(this);
-                break;
-            case CardID.BANANA:
-                spriteRenderer.sprite = banana;
-                carteTirees.Add(this);
-                break;
-            case CardID.SATELLITE:
-                spriteRenderer.sprite = satellite;
-                carteTirees.Add(this);
-                break;
-            case CardID.MOON:
-                spriteRenderer.sprite = moon;
-                carteTirees.Add(this);
-                break;
-            case CardID.ALIENSHIP:
-                spriteRenderer.sprite = alien_ship_alt;
-                carteTirees.Add(this);
-                break;
-            case CardID.CARDBACK:
-                spriteRenderer.sprite = card_back;
-                break;
-        }
-        Debug.Log(carteTirees.Count);
-        if (carteTirees.Count % 2 == 0 && carteTirees.Count != 0)
-        { // vérification
-            if (carteTirees[carteTirees.Count - 2].spriteRenderer.sprite.name == carteTirees[carteTirees.Count - 1].spriteRenderer.sprite.name)
-            { // victoire
-                if (carteTirees.Count == 12)
-                {
-                    Debug.Log("Victoire");
-                    SceneManager.LoadScene("Corridor_AA");
-                }
+                pair++;
+                testVictoire();
             }
             else
             {
-                errors++;
-                if (errors == ERRORS_MAX)
-                { // défaite
-                    Debug.Log("Défaite");
-                    SceneManager.LoadScene("Hangar_AB");
-                }
-                StartCoroutine(Reset());
+                carteTirees[carteTirees.Count - 2].rotation(90.0);
+                carteTirees[carteTirees.Count - 1].rotation(90.0);
+                erreur++;
+                testDefaite();
             }
         }
     }
 
-    IEnumerator Reset()
+    static void remiseAZero()
     {
-        yield return new WaitForSeconds(1);
-        carteTirees[carteTirees.Count - 2].spriteRenderer.sprite = card_back;
-        carteTirees[carteTirees.Count - 2].isFacingCard = false;
-        carteTirees[carteTirees.Count - 1].spriteRenderer.sprite = card_back;
-        carteTirees[carteTirees.Count - 1].isFacingCard = false;
-        carteTirees.RemoveAt(carteTirees.Count - 1);
-        carteTirees.RemoveAt(carteTirees.Count - 1);
-        yield return null;
+
     }
 
-    /// <summary>
-    /// Retourne vrai si les 2 dernieres cartes sont == ou si il n'y a pas 2 cartes.
-    /// </summary>
-    /// <returns></returns>
-    bool CompareLastTwoCards()
+    static void testVictoire()
     {
-        if (carteTirees.Count >= 2 && carteTirees.Count % 2 == 0)
-        {
-            return carteTirees[carteTirees.Count - 2].front == carteTirees[carteTirees.Count - 1].front;
-        }
-        else
-        {
-            return true;
-        }
+        if (pair*2 == numCards)
+            GameStateManager.jeuxGagnes++;
+    }
+
+    static void testDefaite()
+    {
+
+    }
+
+    public void rotation(double angle)
+    {
+        GetComponent<Memory>().transform.rotation = new Quaternion((float)angle, (float)0.0, (float)0.0, (float)1.0);
+    }
+
+    static void placement()
+    {
+
     }
 }

@@ -16,12 +16,12 @@ public class Hanoi : MonoBehaviour
     private static List<Stack<int>> tours = new List<Stack<int>>();
     private static Hanoi pointeurDonut;
     private static bool locked = false; // true si mouvement en cours qui n'est pas une sélection
-    public Sprite coup0, coup1, coup2, coup3, coup4, coup5, coup6, coup7, coup8, coup9, coup10;
-    public SpriteRenderer spriteRenderer;
+    // Sprite coup0, coup1, coup2, coup3, coup4, coup5, coup6, coup7, coup8, coup9, coup10;
+    // SpriteRenderer spriteRenderer;
     // variables
     private int indice; // indice (par rapport aux tours)
     private int value; // valeurs du donut
-    private float[] coords = { 0f, 0f }; // coordonnées a bouger, à 0 plus rien ne bouge
+    private float[] coords = { 0f, 0f, 0f }; // coordonnées a bouger, à 0 plus rien ne bouge
 
     /// <summary>
     /// Initialisation pour chaque objet
@@ -157,9 +157,9 @@ public class Hanoi : MonoBehaviour
     /// Ici, quand l'object tombe sur le sol, reset du pointeurDonut (pour avoir à le resélectionner).
     /// </summary>
     /// <param name="collision"></param>
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (pointeurDonut != null && pointeurDonut.GetComponent<Rigidbody2D>().gravityScale == 1f)
+        if (pointeurDonut != null && pointeurDonut.GetComponent<Rigidbody>().gravityScale == 1f)
         {
             locked = false; // fin mouvement (bas / gravité) => déblocage
             pointeurDonut = null;
@@ -179,13 +179,13 @@ public class Hanoi : MonoBehaviour
                 Debug.Log(tours[indice].Peek() + " " + value);
                 if (tours[indice].Peek() == value && pointeurDonut != this) // nv pointeur
                 {
-                    GetComponent<Rigidbody2D>().gravityScale = 0f;
+                    GetComponent<Rigidbody>().gravityScale = 0f;
                     coords[1] += 6f;
                     locked = true; // sélection donut => blocage
                     Debug.Log(pointeurDonut == null);
                     if (pointeurDonut != null) // ancien pointeur
                     {
-                        pointeurDonut.GetComponent<Rigidbody2D>().gravityScale = 1f;
+                        pointeurDonut.GetComponent<Rigidbody>().gravityScale = 1f;
                     }
                     pointeurDonut = this;
                 }

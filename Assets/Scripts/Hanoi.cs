@@ -28,7 +28,7 @@ public class Hanoi : MonoBehaviour
     /// </summary>
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
         if (!flag)
         {
             tours.Add(new Stack<int>());
@@ -159,11 +159,11 @@ public class Hanoi : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
-        if (pointeurDonut != null && pointeurDonut.GetComponent<Rigidbody>().gravityScale == 1f)
+        /*if (pointeurDonut != null && pointeurDonut.GetComponent<Rigidbody>().gravityScale == 1f)
         {
             locked = false; // fin mouvement (bas / gravité) => déblocage
             pointeurDonut = null;
-        }
+        }*/
     }
 
     /// <summary>
@@ -179,13 +179,13 @@ public class Hanoi : MonoBehaviour
                 Debug.Log(tours[indice].Peek() + " " + value);
                 if (tours[indice].Peek() == value && pointeurDonut != this) // nv pointeur
                 {
-                    GetComponent<Rigidbody>().gravityScale = 0f;
+                    //GetComponent<Rigidbody>().gravityScale = 0f;
                     coords[1] += 6f;
                     locked = true; // sélection donut => blocage
                     Debug.Log(pointeurDonut == null);
                     if (pointeurDonut != null) // ancien pointeur
                     {
-                        pointeurDonut.GetComponent<Rigidbody>().gravityScale = 1f;
+                        //pointeurDonut.GetComponent<Rigidbody>().gravityScale = 1f;
                     }
                     pointeurDonut = this;
                 }
@@ -222,5 +222,10 @@ public class Hanoi : MonoBehaviour
                 }
             }
         }
+    }
+
+    public static void remiseAZero()
+    {
+
     }
 }

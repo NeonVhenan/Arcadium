@@ -15,4 +15,10 @@ public class Chambouletout : MonoBehaviour
     {
         
     }
+
+
+    public static void remiseAZero()
+    {
+
+    }
 }

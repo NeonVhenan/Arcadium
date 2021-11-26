@@ -14,13 +14,13 @@ public class Hanoi : MonoBehaviour
     private static int cp = 0;
     private static bool flag = false;
     private static List<Stack<int>> tours = new List<Stack<int>>();
-    private static Hanoi pointeurFil;
+    private static Hanoi pointeurDonut;
     private static bool locked = false; // true si mouvement en cours qui n'est pas une sélection
     public Sprite coup0, coup1, coup2, coup3, coup4, coup5, coup6, coup7, coup8, coup9, coup10;
     public SpriteRenderer spriteRenderer;
     // variables
     private int indice; // indice (par rapport aux tours)
-    private int value; // valeurs du fil
+    private int value; // valeurs du donut
     private float[] coords = { 0f, 0f }; // coordonnées a bouger, à 0 plus rien ne bouge
 
     /// <summary>
@@ -42,18 +42,18 @@ public class Hanoi : MonoBehaviour
             tours[0].Push(2);
             tours[0].Push(1);
         }
-        if (name.StartsWith("fil")) // initialisation fil tour 1
+        if (name.StartsWith("donut")) // initialisation donut tour 1
         {
             indice = 0;
             switch (name)
             {
-                case "fil1":
+                case "donut1":
                     value = 1;
                     break;
-                case "fil2":
+                case "donut2":
                     value = 2;
                     break;
-                case "fil3":
+                case "donut3":
                     value = 3;
                     break;
             }
@@ -65,7 +65,7 @@ public class Hanoi : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (name.StartsWith("coup"))
+        /*if (name.StartsWith("coup"))
         {
             switch (cp)
             {
@@ -129,7 +129,7 @@ public class Hanoi : MonoBehaviour
                     locked = false; // fin mouvement (haut) => déblocage
                 }
             }
-        }
+        }*/
     }
 
     /// <summary>
@@ -154,15 +154,15 @@ public class Hanoi : MonoBehaviour
 
     /// <summary>
     /// Détection de collision (Rigidbody2D)
-    /// Ici, quand l'object tombe sur le sol, reset du pointeurFil (pour avoir à le resélectionner).
+    /// Ici, quand l'object tombe sur le sol, reset du pointeurDonut (pour avoir à le resélectionner).
     /// </summary>
     /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (pointeurFil != null && pointeurFil.GetComponent<Rigidbody2D>().gravityScale == 1f)
+        if (pointeurDonut != null && pointeurDonut.GetComponent<Rigidbody2D>().gravityScale == 1f)
         {
             locked = false; // fin mouvement (bas / gravité) => déblocage
-            pointeurFil = null;
+            pointeurDonut = null;
         }
     }
 
@@ -174,25 +174,25 @@ public class Hanoi : MonoBehaviour
     {
         if (!locked) // blocage si mouvement en cours
         {
-            if (name.StartsWith("fil"))
+            if (name.StartsWith("donut"))
             {
                 Debug.Log(tours[indice].Peek() + " " + value);
-                if (tours[indice].Peek() == value && pointeurFil != this) // nv pointeur
+                if (tours[indice].Peek() == value && pointeurDonut != this) // nv pointeur
                 {
                     GetComponent<Rigidbody2D>().gravityScale = 0f;
                     coords[1] += 6f;
-                    locked = true; // sélection fil => blocage
-                    Debug.Log(pointeurFil == null);
-                    if (pointeurFil != null) // ancien pointeur
+                    locked = true; // sélection donut => blocage
+                    Debug.Log(pointeurDonut == null);
+                    if (pointeurDonut != null) // ancien pointeur
                     {
-                        pointeurFil.GetComponent<Rigidbody2D>().gravityScale = 1f;
+                        pointeurDonut.GetComponent<Rigidbody2D>().gravityScale = 1f;
                     }
-                    pointeurFil = this;
+                    pointeurDonut = this;
                 }
             }
             if (name.StartsWith("pic"))
             {
-                if (pointeurFil != null)
+                if (pointeurDonut != null)
                 {
                     int indiceTour;
                     switch (name)
@@ -210,12 +210,12 @@ public class Hanoi : MonoBehaviour
                             indiceTour = -1;
                             break;
                     }
-                    if (pointeurFil.indice != indiceTour && (tours[indiceTour].Count == 0 || tours[indiceTour].Peek() > pointeurFil.value))
+                    if (pointeurDonut.indice != indiceTour && (tours[indiceTour].Count == 0 || tours[indiceTour].Peek() > pointeurDonut.value))
                     {
-                        tours[indiceTour].Push(pointeurFil.value);
-                        tours[pointeurFil.indice].Pop();
-                        pointeurFil.coords[0] += (indiceTour - pointeurFil.indice) * 6f; // mouvement
-                        pointeurFil.indice = indiceTour;
+                        tours[indiceTour].Push(pointeurDonut.value);
+                        tours[pointeurDonut.indice].Pop();
+                        pointeurDonut.coords[0] += (indiceTour - pointeurDonut.indice) * 6f; // mouvement
+                        pointeurDonut.indice = indiceTour;
                         locked = true; // sélection tour => blocage
                         cp++;
                     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502667, g: 0.37139323, b: 0.49600998, a: 1}
+  m_IndirectSpecularColor: {r: 0.2850269, g: 0.3713935, b: 0.49601045, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1098,7 +1098,7 @@ GameObject:
   - component: {fileID: 93364440}
   - component: {fileID: 93364439}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: pic1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3275,7 +3275,7 @@ GameObject:
   - component: {fileID: 263169833}
   - component: {fileID: 263169832}
   m_Layer: 0
-  m_Name: Cylinder (1)
+  m_Name: pic2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3636,7 +3636,7 @@ GameObject:
   - component: {fileID: 346552928}
   - component: {fileID: 346552927}
   m_Layer: 0
-  m_Name: Cylinder (2)
+  m_Name: pic3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -28,7 +28,7 @@ public class Hanoi : MonoBehaviour
     /// </summary>
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
         if (!flag)
         {
             tours.Add(new Stack<int>());

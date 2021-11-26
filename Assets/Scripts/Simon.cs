@@ -15,4 +15,9 @@ public class Simon : MonoBehaviour
     {
         
     }
+
+    public static void remiseAZero()
+    {
+
+    }
 }

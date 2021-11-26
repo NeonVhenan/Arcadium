@@ -82,7 +82,7 @@ public class Memory : MonoBehaviour
         }
     }
 
-    static void remiseAZero()
+    public static void remiseAZero()
     {
         erreur = 0;
         carteTirees = new List<Memory>();

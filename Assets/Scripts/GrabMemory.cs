@@ -13,12 +13,15 @@ public class GrabMemory : XRGrabInteractable
         base.OnSelectEntered(interactor);
         StoreInteractor(interactor);
         MatchAttachmentPoints(interactor);
-        if (!GetComponent<Memory>().isFacingCard)
+        if (!Memory.finDePartie)
         {
-            GetComponent<Memory>().isFacingCard = true;
-            GetComponent<Memory>().rotation(-90.0);
-            Memory.carteTirees.Add(GetComponent<Memory>());
-            Memory.testCarte();
+            if (!GetComponent<Memory>().isFacingCard)
+            {
+                GetComponent<Memory>().isFacingCard = true;
+                GetComponent<Memory>().rotation(-90.0);
+                Memory.carteTirees.Add(GetComponent<Memory>());
+                Memory.testCarte();
+            }
         }
         
         OnSelectExited(interactor);

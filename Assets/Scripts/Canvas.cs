@@ -18,7 +18,13 @@ public class Canvas : MonoBehaviour
             flag = true;
             canvas = GameObject.Find("Canvas");
             canvasMessage = GameObject.Find("Message").GetComponent<TextMeshProUGUI>();
+            Canvas.canvas.SetActive(false);
         }
+    }
+
+    void desactive()
+    {
+        Canvas.canvas.SetActive(false);
     }
 
 }

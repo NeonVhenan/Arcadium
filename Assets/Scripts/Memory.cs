@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class Memory : MonoBehaviour
 {
     // game variables
-    static int ERRORS_MAX = 5;
+    static int ERRORS_MAX = 15;
     public static int erreur = 0;
     static bool flag = false;
     static int numCards = 18;
@@ -17,6 +18,8 @@ public class Memory : MonoBehaviour
     static int pair;
     public bool isFacingCard = false;
     Material front;
+    static List<int> ordre = new List<int>();
+    public static bool finDePartie = false;
 
 
     // Start is called before the first frame update
@@ -81,17 +84,39 @@ public class Memory : MonoBehaviour
 
     static void remiseAZero()
     {
-
+        erreur = 0;
+        carteTirees = new List<Memory>();
+        foreach (Memory carte in cartes) 
+        {
+            carte.isFacingCard = false;
+            if (carte.transform.rotation.x == -90)
+                carte.rotation(90.0);
+        }
+        placement();
+        finDePartie = false;
     }
 
     static void testVictoire()
     {
-        if (pair*2 == numCards)
+        if (pair * 2 == numCards)
+        {
             GameStateManager.jeuxGagnes++;
+            Canvas.canvas.SetActive(true);
+            Canvas.canvasMessage.text = "VICTOIRE";
+            GameStateManager.jeuxGagnes++;
+            finDePartie = true;
+        }
     }
 
     static void testDefaite()
     {
+        if(erreur >= ERRORS_MAX)
+        {
+            Canvas.canvas.SetActive(true);
+            Canvas.canvasMessage.text = "ECHEC";
+            GameStateManager.jeuxGagnes++;
+            finDePartie = true;
+        }
 
     }
 
@@ -102,6 +127,38 @@ public class Memory : MonoBehaviour
 
     static void placement()
     {
-
+        ordre = new List<int>();
+        for(int i = 0; i < 18; i++)
+        {
+            ordre.Add(i);
+        }
+        int tmp;
+        int num1, num2;
+        for(int i = 0; i < 18; i++)
+        {
+            num1 = UnityEngine.Random.Range(0, 18);
+            tmp = ordre[num1];
+            num2 = UnityEngine.Random.Range(0, 18);
+            ordre[num1] = ordre[num2];
+            ordre[num2] = tmp;
+        }
+        cartes[ordre[0]].transform.position = new Vector3((float)-1.5, (float)0.07, (float)0.5);
+        cartes[ordre[1]].transform.position = new Vector3((float)-1.5, (float)0.07, (float)0.0);
+        cartes[ordre[2]].transform.position = new Vector3((float)-1.5, (float)0.07, (float)-0.5);
+        cartes[ordre[3]].transform.position = new Vector3((float)-1.0, (float)0.07, (float)0.5);
+        cartes[ordre[4]].transform.position = new Vector3((float)-1.0, (float)0.07, (float)0.0);
+        cartes[ordre[5]].transform.position = new Vector3((float)-1.0, (float)0.07, (float)-0.5);
+        cartes[ordre[6]].transform.position = new Vector3((float)-0.5, (float)0.07, (float)0.5);
+        cartes[ordre[7]].transform.position = new Vector3((float)-0.5, (float)0.07, (float)0.0);
+        cartes[ordre[8]].transform.position = new Vector3((float)-0.5, (float)0.07, (float)-0.5);
+        cartes[ordre[9]].transform.position = new Vector3((float)0.0, (float)0.07, (float)0.5);
+        cartes[ordre[10]].transform.position = new Vector3((float)0.0, (float)0.07, (float)0.0);
+        cartes[ordre[11]].transform.position = new Vector3((float)0.0, (float)0.07, (float)-0.5);
+        cartes[ordre[12]].transform.position = new Vector3((float)0.5, (float)0.07, (float)0.5);
+        cartes[ordre[13]].transform.position = new Vector3((float)0.5, (float)0.07, (float)0.0);
+        cartes[ordre[14]].transform.position = new Vector3((float)0.5, (float)0.07, (float)-0.5);
+        cartes[ordre[15]].transform.position = new Vector3((float)1.0, (float)0.07, (float)0.5);
+        cartes[ordre[16]].transform.position = new Vector3((float)1.0, (float)0.07, (float)0.0);
+        cartes[ordre[17]].transform.position = new Vector3((float)1.0, (float)0.07, (float)-0.5);
     }
 }

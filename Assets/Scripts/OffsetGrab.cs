@@ -17,6 +17,7 @@ public class OffsetGrab : XRGrabInteractable
             GetComponent<Jenga>().selectionne = true;
         else
             OnSelectExited(interactor);
+        Debug.Log("Ici");
 
     }
 

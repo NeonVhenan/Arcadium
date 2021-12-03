@@ -142,23 +142,23 @@ public class Memory : MonoBehaviour
             ordre[num1] = ordre[num2];
             ordre[num2] = tmp;
         }
-        cartes[ordre[0]].transform.position = new Vector3((float)-1.5, (float)0.07, (float)0.5);
-        cartes[ordre[1]].transform.position = new Vector3((float)-1.5, (float)0.07, (float)0.0);
-        cartes[ordre[2]].transform.position = new Vector3((float)-1.5, (float)0.07, (float)-0.5);
-        cartes[ordre[3]].transform.position = new Vector3((float)-1.0, (float)0.07, (float)0.5);
-        cartes[ordre[4]].transform.position = new Vector3((float)-1.0, (float)0.07, (float)0.0);
-        cartes[ordre[5]].transform.position = new Vector3((float)-1.0, (float)0.07, (float)-0.5);
-        cartes[ordre[6]].transform.position = new Vector3((float)-0.5, (float)0.07, (float)0.5);
-        cartes[ordre[7]].transform.position = new Vector3((float)-0.5, (float)0.07, (float)0.0);
-        cartes[ordre[8]].transform.position = new Vector3((float)-0.5, (float)0.07, (float)-0.5);
-        cartes[ordre[9]].transform.position = new Vector3((float)0.0, (float)0.07, (float)0.5);
-        cartes[ordre[10]].transform.position = new Vector3((float)0.0, (float)0.07, (float)0.0);
-        cartes[ordre[11]].transform.position = new Vector3((float)0.0, (float)0.07, (float)-0.5);
-        cartes[ordre[12]].transform.position = new Vector3((float)0.5, (float)0.07, (float)0.5);
-        cartes[ordre[13]].transform.position = new Vector3((float)0.5, (float)0.07, (float)0.0);
-        cartes[ordre[14]].transform.position = new Vector3((float)0.5, (float)0.07, (float)-0.5);
-        cartes[ordre[15]].transform.position = new Vector3((float)1.0, (float)0.07, (float)0.5);
-        cartes[ordre[16]].transform.position = new Vector3((float)1.0, (float)0.07, (float)0.0);
-        cartes[ordre[17]].transform.position = new Vector3((float)1.0, (float)0.07, (float)-0.5);
+        cartes[ordre[0]].transform.position = new Vector3((float)4.5, (float)3.67, (float)-7.5);
+        cartes[ordre[1]].transform.position = new Vector3((float)4.5, (float)3.67, (float)-7.0);
+        cartes[ordre[2]].transform.position = new Vector3((float)4.5, (float)3.67, (float)-7.5);
+        cartes[ordre[3]].transform.position = new Vector3((float)4.0, (float)3.67, (float)-6.5);
+        cartes[ordre[4]].transform.position = new Vector3((float)4.0, (float)3.67, (float)-7.0);
+        cartes[ordre[5]].transform.position = new Vector3((float)4.0, (float)3.67, (float)-7.5);
+        cartes[ordre[6]].transform.position = new Vector3((float)4.5, (float)3.67, (float)-6.5);
+        cartes[ordre[7]].transform.position = new Vector3((float)4.5, (float)3.67, (float)-7.0);
+        cartes[ordre[8]].transform.position = new Vector3((float)4.5, (float)3.67, (float)-7.5);
+        cartes[ordre[9]].transform.position = new Vector3((float)5.0, (float)3.67, (float)-6.5);
+        cartes[ordre[10]].transform.position = new Vector3((float)5.0, (float)3.67, (float)-7.0);
+        cartes[ordre[11]].transform.position = new Vector3((float)5.0, (float)3.67, (float)-7.5);
+        cartes[ordre[12]].transform.position = new Vector3((float)5.5, (float)3.67, (float)-6.5);
+        cartes[ordre[13]].transform.position = new Vector3((float)5.5, (float)3.67, (float)-7.0);
+        cartes[ordre[14]].transform.position = new Vector3((float)5.5, (float)3.67, (float)-7.5);
+        cartes[ordre[15]].transform.position = new Vector3((float)6.0, (float)3.67, (float)-6.5);
+        cartes[ordre[16]].transform.position = new Vector3((float)6.0, (float)3.67, (float)-7.0);
+        cartes[ordre[17]].transform.position = new Vector3((float)6.0, (float)3.67, (float)-7.5);
     }
 }

@@ -11,12 +11,14 @@ public class GrabMemory : XRGrabInteractable
     protected override void OnSelectEntered(XRBaseInteractor interactor)
     {
         base.OnSelectEntered(interactor);
+        Debug.Log("select?");
         StoreInteractor(interactor);
         MatchAttachmentPoints(interactor);
         if (!Memory.finDePartie)
         {
             if (!GetComponent<Memory>().isFacingCard)
             {
+                Debug.Log("entry?");
                 GetComponent<Memory>().isFacingCard = true;
                 GetComponent<Memory>().rotation(-90.0);
                 Memory.carteTirees.Add(GetComponent<Memory>());
@@ -25,6 +27,7 @@ public class GrabMemory : XRGrabInteractable
         }
         
         OnSelectExited(interactor);
+        Debug.Log("memory");
 
     }
 

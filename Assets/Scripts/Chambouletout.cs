@@ -34,10 +34,11 @@ public class Chambouletout : MonoBehaviour
             Debug.Log(yBase);
             Debug.Log("valeur : ");
             Debug.Log(GetComponent<Chambouletout>().transform.position.y - 0.1);
+
             if (yBase < GetComponent<Chambouletout>().transform.position.y - 0.1)
             {
 
-                chute[num] = 1; ;
+                chute[num] = 1;
             }
 
         for (int i = 0; i < cannettes.Count; i++)

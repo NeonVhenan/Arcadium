@@ -71,12 +71,17 @@ public class Chambouletout : MonoBehaviour
         }
     }
 
+    public void rotation(double angle)
+    {
+        GetComponent<Chambouletout>().transform.rotation = new Quaternion((float)angle, (float)0.0, (float)0.0, (float)1.0);
+    }
 
     public static void remiseAZero()
     {
         for(int i = 0; i < cannettes.Count; i++) {
             
             cannettes[i].transform.position = new Vector3(cannettes[i].xBase, cannettes[i].yBase, cannettes[i].zBase);
+            cannettes[i].rotation(90.0); //= new Quaternion(90.0, cannettes[i].xBase, cannettes[i].yBase, cannettes[i].zBase);
         }
     }
 }

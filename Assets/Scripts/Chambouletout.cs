@@ -81,7 +81,7 @@ public class Chambouletout : MonoBehaviour
         for(int i = 0; i < cannettes.Count; i++) {
             
             cannettes[i].transform.position = new Vector3(cannettes[i].xBase, cannettes[i].yBase, cannettes[i].zBase);
-            cannettes[i].rotation(90.0); //= new Quaternion(90.0, cannettes[i].xBase, cannettes[i].yBase, cannettes[i].zBase);
+            cannettes[i].rotation(-90.0); //= new Quaternion(90.0, cannettes[i].xBase, cannettes[i].yBase, cannettes[i].zBase);
         }
     }
 }
